@@ -8,15 +8,21 @@ module.exports = {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        alias: {
+            'styles': path.join(__dirname, 'src/style/components')
+        }
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader', 'eslint-loader']
             }
